@@ -29,7 +29,7 @@ def _is_bed(info: BluetoothServiceInfoBleak) -> bool:
 
 def _title(info: BluetoothServiceInfoBleak) -> str:
     name = info.name or ""
-    return name if name.upper().startswith(NAME_PREFIX) else f"Air-Pedic {info.address}"
+    return name if name.upper().startswith(NAME_PREFIX) else "Air-Pedic Mattress"
 
 
 class AirPedicConfigFlow(ConfigFlow, domain=DOMAIN):

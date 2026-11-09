@@ -1,0 +1,29 @@
+{
+  "config": {
+    "flow_title": "{name}",
+    "step": {
+      "user": { "data": { "address": "Bed" } },
+      "confirm": { "description": "Set up {name}?" }
+    },
+    "abort": {
+      "no_devices_found": "No Air-Pedic (ANM-*) bed is in range of a Bluetooth adapter or proxy.",
+      "already_configured": "This bed is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": { "swap_sides": "Swap left/right (controller labels are mirrored)" }
+      }
+    }
+  },
+  "entity": {
+    "number": {
+      "left_head_foot": { "name": "Left head/foot" },
+      "left_torso": { "name": "Left torso" },
+      "right_head_foot": { "name": "Right head/foot" },
+      "right_torso": { "name": "Right torso" }
+    },
+    "button": { "stop": { "name": "Stop pump" } }
+  }
+}

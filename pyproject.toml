@@ -1,0 +1,24 @@
+[project]
+name = "airpedic"
+version = "0.1.0"
+description = "Bluetooth LE control for Air-Pedic (ANM-*) air mattresses"
+readme = "README.md"
+authors = [
+    { name = "Edward Ash", email = "eash@nvidia.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "bleak>=3.1.0",
+]
+
+[project.scripts]
+airpedic = "airpedic.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

@@ -7,6 +7,7 @@
     },
     "abort": {
       "no_devices_found": "No Air-Pedic (ANM-*) bed is in range of a Bluetooth adapter or proxy.",
+      "not_supported": "This Bluetooth device is not an Air-Pedic bed.",
       "already_configured": "This bed is already configured."
     }
   },

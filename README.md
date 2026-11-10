@@ -30,10 +30,9 @@ async with await AirPedicBed.connect("ANM-33DF2570") as bed:
 
 ### Left vs right
 
-The controller (and the phone app) label the sides mirrored relative to the bed
-as you lie in it. Sides here are physical, with the controller labels swapped by
-default. If they come out backwards, use `--no-swap` / `swap_sides=False`, or
-untick *Swap left/right* in the HA integration options.
+The controller's LEFT/RIGHT match the bed as you lie in it (verified on the
+bed; the phone app shows them mirrored). If yours come out backwards, use
+`--swap` / `swap_sides=True`, or tick *Swap left/right* in the HA integration options.
 
 ## Home Assistant
 

@@ -33,9 +33,9 @@ def _parser() -> argparse.ArgumentParser:
         help="advertised name (ANM-XXXXXXXX) or BLE address; default: $AIRPEDIC_DEVICE or first ANM-* found",
     )
     ap.add_argument(
-        "--no-swap",
+        "--swap",
         action="store_true",
-        help="use the controller's side labels instead of the corrected physical sides",
+        help="mirror left/right (if the bed's sides come out backwards)",
     )
     ap.add_argument("-v", "--verbose", action="store_true", help="log raw frames")
     sub = ap.add_subparsers(dest="command", required=True)
@@ -57,7 +57,7 @@ async def _run(args: argparse.Namespace) -> int:
             print(d.address, d.name)
         return 0
 
-    async with await AirPedicBed.connect(args.device or None, swap_sides=not args.no_swap) as bed:
+    async with await AirPedicBed.connect(args.device or None, swap_sides=args.swap) as bed:
         if args.command == "status":
             _print(await bed.query())
         elif args.command == "set":

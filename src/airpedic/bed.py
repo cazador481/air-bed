@@ -54,14 +54,14 @@ async def find_bed(name: str | None = None, timeout: float = 30.0) -> BLEDevice 
 class AirPedicBed:
     """One BLE session with the bed's pump controller.
 
-    Sides are physical sides as you lie in bed. ``swap_sides`` (default True)
-    corrects controller/app labels that are mirrored relative to the bed.
+    Sides are physical sides as you lie in bed; the controller's labels match
+    them. ``swap_sides`` mirrors left/right for setups where they don't.
 
     The controller accepts a single connection: while this is connected the
     phone app cannot reach the bed, so keep sessions short.
     """
 
-    def __init__(self, client: BleakClient, *, swap_sides: bool = True) -> None:
+    def __init__(self, client: BleakClient, *, swap_sides: bool = False) -> None:
         self._client = client
         self._swap = swap_sides
         self._assembler = FrameAssembler()
@@ -70,7 +70,7 @@ class AirPedicBed:
 
     @classmethod
     async def connect(
-        cls, target: BLEDevice | str | None = None, *, swap_sides: bool = True, timeout: float = 30.0
+        cls, target: BLEDevice | str | None = None, *, swap_sides: bool = False, timeout: float = 30.0
     ) -> AirPedicBed:
         """Connect by BLEDevice, address, advertised name (``ANM-33DF2570``), or the first bed found."""
         if target is None or (isinstance(target, str) and target.upper().startswith(NAME_PREFIX)):

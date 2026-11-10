@@ -14,7 +14,7 @@
   "options": {
     "step": {
       "init": {
-        "data": { "swap_sides": "Swap left/right (controller labels are mirrored)" }
+        "data": { "swap_sides": "Swap left/right (if the bed's sides come out backwards)" }
       }
     }
   },
